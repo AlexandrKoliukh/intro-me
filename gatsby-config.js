@@ -15,13 +15,13 @@ module.exports = {
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-i18n',
-      options: {
-        langKeyDefault: 'ru',
-        useLangKeyLayout: false,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-i18n',
+    //   options: {
+    //     langKeyDefault: 'en',
+    //     useLangKeyLayout: false,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
