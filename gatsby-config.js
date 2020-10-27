@@ -10,25 +10,18 @@ module.exports = {
     title: `Gatsby`,
     siteUrl: `https://www.gatsbyjs.com`,
     description: `Blazing fast modern site generator for React`,
+    locale: 'ru',
   },
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
-    // {
-    //   resolve: 'gatsby-plugin-i18n',
-    //   options: {
-    //     langKeyDefault: 'en',
-    //     useLangKeyLayout: false,
-    //   },
-    // },
+    'gatsby-transformer-yaml',
     {
-      resolve: `gatsby-plugin-sass`,
+      resolve: 'gatsby-source-filesystem',
       options: {
-        postCssPlugins: [
-          require('tailwindcss'),
-          require('./tailwind.config.js'),
-        ],
+        name: 'data',
+        path: `${__dirname}/data`,
       },
     },
   ],
