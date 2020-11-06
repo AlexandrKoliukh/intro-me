@@ -1,0 +1,15 @@
+.wave {
+  border-radius: 100%;
+  z-index: -1;
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: theme('backgroundColor.primary');
+  box-shadow: 0 0 0 0 theme('colors.dark');
+  transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activeWave {
+  composes: wave;
+  box-shadow: 0 0 0 2300px theme('colors.dark');
+}

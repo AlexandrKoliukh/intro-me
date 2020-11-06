@@ -1,9 +1,11 @@
 export default {
-  primary: '#61DAFB',
-  secondary: '#254E70',
-  negative: '#e45b78',
-  positive: '#A3D9B1',
-  backgroundPrimary: '#444444',
-  backgroundSecondary: '#7b7b7b',
+  bgPrimary: '#1a202c',
+  bgSecondary: '#4a5568',
+
+  main: '#1da1f2',
+
   textPrimary: '#fff',
+  textSecondary: '#e2e8f0',
+
+  key: 'dark',
 };

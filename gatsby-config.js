@@ -13,10 +13,10 @@ module.exports = {
     locale: 'ru',
   },
   plugins: [
-    'gatsby-plugin-sass',
-    'gatsby-plugin-postcss',
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
+    'gatsby-plugin-postcss',
+    'gatsby-plugin-styled-components',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
