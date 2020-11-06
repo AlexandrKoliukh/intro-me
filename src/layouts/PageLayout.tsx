@@ -4,16 +4,14 @@ import { SEO } from '@components/SEO';
 import { useTheme } from '@lib/hooks';
 import { ThemeProvider } from 'styled-components';
 
-interface IProps {}
-
-export const AppLayout: FC<IProps> = (props) => {
+export const PageLayout = (props) => {
   const [theme] = useTheme();
 
   return (
-    <ThemeProvider theme={theme}>
+    <div>
       <SEO />
       <Header />
-      {props.children}
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+    </div>
   );
 };

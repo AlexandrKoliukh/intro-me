@@ -40,13 +40,18 @@ const getBrowserTheme = (): IThemes => {
 };
 
 export const getCurrentThemeKey = (): IThemes => {
-  return (localStorage.getItem('theme') as IThemes) || getBrowserTheme();
+  return (
+    (typeof window !== 'undefined' &&
+      (window.localStorage.getItem('theme') as IThemes)) ||
+    getBrowserTheme()
+  );
 };
 
 export const getCurrentTheme = () => themes[getCurrentThemeKey()];
 export const getThemeByKey = (key: IThemes) => themes[key];
 
 export const changeTheme = (themeKey: IThemes) => {
-  localStorage.setItem('theme', themeKey);
+  typeof window !== 'undefined' &&
+    window.localStorage.setItem('theme', themeKey);
   applyTheme(themeKey);
 };

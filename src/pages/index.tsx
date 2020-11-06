@@ -1,9 +1,8 @@
 import React from 'react';
-import { App } from '../components/App';
 import { useStaticQuery, graphql } from 'gatsby';
-import { AppLayout } from '../layouts/AppLayout';
+import { PageLayout } from '../layouts/PageLayout';
 
-export default function Home(props) {
+export default function Index(props) {
   const data = useStaticQuery(graphql`
     query ProfileQuery {
       profile: profileYaml {
@@ -11,9 +10,7 @@ export default function Home(props) {
       }
     }
   `);
-  return (
-    <AppLayout>
-      <App />
-    </AppLayout>
-  );
+
+  console.log(data);
+  return <PageLayout>Adsadas</PageLayout>;
 }
