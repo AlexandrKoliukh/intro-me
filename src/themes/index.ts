@@ -1,3 +1,4 @@
+import { windowGlobal } from '@lib/utils';
 import light from './light';
 import dark from './dark';
 
@@ -26,23 +27,24 @@ export const mapTheme = (variables) => {
 
 export const applyTheme = (themeKey: IThemes) => {
   const themeObject = mapTheme(themes[themeKey]);
-  const root = document.documentElement;
+  const root = windowGlobal?.document?.documentElement;
 
-  Object.keys(themeObject).forEach((property) => {
-    root.style.setProperty(property, themeObject[property]);
-  });
+  if (root) {
+    Object.keys(themeObject).forEach((property) => {
+      root.style.setProperty(property, themeObject[property]);
+    });
+  }
 };
 
 const getBrowserTheme = (): IThemes => {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
+  return windowGlobal?.matchMedia?.('(prefers-color-scheme: dark)')?.matches
     ? themeKeys.dark
     : themeKeys.light;
 };
 
 export const getCurrentThemeKey = (): IThemes => {
   return (
-    (typeof window !== 'undefined' &&
-      (window.localStorage.getItem('theme') as IThemes)) ||
+    (windowGlobal?.localStorage?.getItem('theme') as IThemes) ||
     getBrowserTheme()
   );
 };
@@ -51,7 +53,6 @@ export const getCurrentTheme = () => themes[getCurrentThemeKey()];
 export const getThemeByKey = (key: IThemes) => themes[key];
 
 export const changeTheme = (themeKey: IThemes) => {
-  typeof window !== 'undefined' &&
-    window.localStorage.setItem('theme', themeKey);
+  windowGlobal?.localStorage?.setItem('theme', themeKey);
   applyTheme(themeKey);
 };

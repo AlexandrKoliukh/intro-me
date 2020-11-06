@@ -1,3 +1,5 @@
+export const windowGlobal = typeof window !== 'undefined' && window;
+
 export const getDiagonal = () => {
   const width = window.outerWidth;
   const height = window.outerHeight;
