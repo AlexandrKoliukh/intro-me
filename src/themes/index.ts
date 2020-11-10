@@ -48,9 +48,8 @@ export const getCurrentThemeKey = (): IThemes => {
     getBrowserTheme()
   );
 };
-
-export const getCurrentTheme = () => themes[getCurrentThemeKey()];
 export const getThemeByKey = (key: IThemes) => themes[key];
+export const getCurrentTheme = () => getThemeByKey(getCurrentThemeKey());
 
 export const changeTheme = (themeKey: IThemes) => {
   windowGlobal?.localStorage?.setItem('theme', themeKey);
